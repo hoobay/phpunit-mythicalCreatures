@@ -1,0 +1,36 @@
+{
+    "name": "mythical-creatures/php-exercises",
+    "description": "Exercices PHP 8 avec PHPUnit - Portage des exercices Ruby Mythical Creatures",
+    "type": "project",
+    "require": {
+        "php": ">=8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "MythicalCreatures\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MythicalCreatures\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test:unicorn": "phpunit tests/UnicornTest.php",
+        "test:vampire": "phpunit tests/VampireTest.php",
+        "test:dragon": "phpunit tests/DragonTest.php",
+        "test:hobbit": "phpunit tests/HobbitTest.php",
+        "test:pirate": "phpunit tests/PirateTest.php",
+        "test:wizard": "phpunit tests/WizardTest.php",
+        "test:medusa": "phpunit tests/MedusaTest.php",
+        "test:werewolf": "phpunit tests/WerewolfTest.php",
+        "test:centaur": "phpunit tests/CentaurTest.php",
+        "test:ogre": "phpunit tests/OgreTest.php",
+        "test:direwolf": "phpunit tests/DirewolfTest.php",
+        "test:lovisa": "phpunit tests/LovisaTest.php"
+    }
+}
