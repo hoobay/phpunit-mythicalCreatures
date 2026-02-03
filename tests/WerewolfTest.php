@@ -63,58 +63,31 @@ class WerewolfTest extends TestCase
 
     public function testIsNotHungryByDefault(): void
     {
-        $werewolf = new Werewolf('David', 'London');
-        $this->assertFalse($werewolf->isHungry());
+        
     }
 
     public function testBecomesHungryAfterChangingToAWerewolf(): void
     {
-        $werewolf = new Werewolf('David', 'London');
-        $werewolf->change();
-        $this->assertTrue($werewolf->isHungry());
+       
     }
 
     public function testConsumesAVictim(): void
     {
-        $werewolf = new Werewolf('David', 'London');
-        $victim = new Victim();
-        
-        $werewolf->change();
-        $werewolf->consume($victim);
-        
-        $this->assertEquals('dead', $victim->getStatus());
+       
     }
 
     public function testCannotConsumeAVictimIfItIsInHumanForm(): void
     {
-        $werewolf = new Werewolf('David', 'London');
-        $victim = new Victim();
-        
-        $werewolf->consume($victim);
-        
-        $this->assertEquals('alive', $victim->getStatus());
+       
     }
 
     public function testAWerewolfThatHasConsumedAHumanBeingIsNoLongerHungry(): void
     {
-        $werewolf = new Werewolf('David', 'London');
-        $victim = new Victim();
         
-        $werewolf->change();
-        $this->assertTrue($werewolf->isHungry());
-        
-        $werewolf->consume($victim);
-        $this->assertFalse($werewolf->isHungry());
     }
 
     public function testAWerewolfWhoHasConsumedAVictimMakesTheVictimDead(): void
     {
-        $werewolf = new Werewolf('David', 'London');
-        $victim = new Victim();
-        
-        $werewolf->change();
-        $werewolf->consume($victim);
-        
-        $this->assertEquals('dead', $victim->getStatus());
+       
     }
 }

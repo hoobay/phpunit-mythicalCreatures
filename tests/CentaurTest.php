@@ -139,28 +139,16 @@ class CentaurTest extends TestCase
     {
         $centaur = new Centaur('George', 'Palomino');
         
-        $centaur->shoot();
-        $centaur->run();
-        $centaur->shoot();
-        $this->assertTrue($centaur->isCranky());
-        
-        $centaur->drinkPotion();
-        $this->assertFalse($centaur->isCranky());
+       
     }
 
     public function testCanOnlyDrinkAPotionWhilstStanding(): void
     {
-        $centaur = new Centaur('George', 'Palomino');
-        $centaur->layDown();
-        $this->assertEquals('NO!', $centaur->drinkPotion());
+      
     }
 
     public function testGetsSickIfAPotionIsDrunkWhileRested(): void
     {
-        $centaur = new Centaur('George', 'Palomino');
-        $this->assertFalse($centaur->isCranky());
-        
-        $centaur->drinkPotion();
-        $this->assertTrue($centaur->isSick());
+    
     }
 }

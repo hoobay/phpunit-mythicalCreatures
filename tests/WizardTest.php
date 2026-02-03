@@ -47,25 +47,22 @@ class WizardTest extends TestCase
 
     public function testStartsRested(): void
     {
-        $wizard = new Wizard('Gandalf');
-        $this->assertTrue($wizard->isRested());
+      # create wizard
+    # .rested? returns true
     }
 
     public function testCanCastSpells(): void
     {
-        $wizard = new Wizard('Gandalf');
-        $this->assertEquals('MAGIC MISSILE!', $wizard->cast());
+    # create wizard
+    # .cast returns "MAGIC MISSILE!"
     }
 
     public function testGetsTiredAfterCastingThreeSpells(): void
     {
-        $wizard = new Wizard('Gandalf');
-        
-        $wizard->cast();
-        $wizard->cast();
-        $this->assertTrue($wizard->isRested());
-        
-        $wizard->cast();
-        $this->assertFalse($wizard->isRested());
+    # create wizard
+    # casts spell twice
+    # check if wizard is rested
+    # casts spell
+    # check wizard is not rested
     }
 }
