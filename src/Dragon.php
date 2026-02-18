@@ -11,13 +11,13 @@ class Dragon {
     private bool $hungry;
     private int $eatCount;
 
-    public function __construct(string $name, string $color, string $rider, bool $hungry = true, int $eatCount = 0)
+    public function __construct(string $name, string $color, string $rider, bool $hungry = true)
     {
         $this->name = $name;
         $this->color = $color;
         $this->rider = $rider;
         $this->hungry = $hungry;
-        $this->eatCount = $eatCount;
+        $this->eatCount = 0;
     }
 
     public function getName(): string
