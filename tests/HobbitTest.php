@@ -74,22 +74,33 @@ class HobbitTest extends TestCase
 
     public function testIsOldAtTheAgeOf101(): void
     {
-         # create a hobbit
-    # have hobbit age 101 years
-    # check that hobbit.old? returns true
+        # create a hobbit
+        $hobbit = new Hobbit('Otto');
+        # have hobbit age 101 years
+        for ($i = 0; $i < 101; $i++) {
+            $hobbit->celebrateBirthday();
+        }        
+        # check that hobbit.old? returns true
+        $this->assertTrue($hobbit->isOld());
     }
 
     public function testHasTheRingIfItsNameIsFrodo(): void
     {
         # create a hobbit named Frodo
-    # create a second hobbit named Sam
-    # check that .has_ring? for Frodo returns true
-    # check that .has_ring? for Sam returns false
+        $hobbit = new Hobbit('Frodo');
+        # create a second hobbit named Sam
+        $hobbit2 = new Hobbit('Sam');
+        # check that .has_ring? for Frodo returns true
+        $this->assertTrue($hobbit->hasRing());
+        # check that .has_ring? for Sam returns false
+        $this->assertFalse($hobbit2->hasRing());
     }
 
     public function testTheyAreShort(): void
     {
-       # create a hobbit
-    # check that is_short? returns true
+        # create a hobbit
+        $hobbit = new Hobbit('Todd');
+        # check that is_short? returns true
+        $this->assertTrue($hobbit->isShort());
     }
 }
