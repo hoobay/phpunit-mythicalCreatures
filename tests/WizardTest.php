@@ -41,28 +41,38 @@ class WizardTest extends TestCase
 
     public function testHasManyRootPowers(): void
     {
-        $wizard = new Wizard('Sal', ['bearded' => true]);
+        $wizard = new Wizard('Sal');
         $this->assertEquals('sudo rm -rf /home/mirandax', $wizard->incantation('rm -rf /home/mirandax'));
     }
 
     public function testStartsRested(): void
     {
-      # create wizard
-    # .rested? returns true
+        # create wizard
+        $wizard = new Wizard('Ulriq');
+        # .rested? returns true
+        $this->assertTrue($wizard->isRested());
     }
 
     public function testCanCastSpells(): void
     {
-    # create wizard
-    # .cast returns "MAGIC MISSILE!"
+        # create wizard
+        $wizard = new Wizard('Qadehar');
+        # .cast returns "MAGIC MISSILE!"
+        $this->assertEquals("MAGIC MISSILE!", $wizard->cast());
     }
 
     public function testGetsTiredAfterCastingThreeSpells(): void
     {
-    # create wizard
-    # casts spell twice
-    # check if wizard is rested
-    # casts spell
-    # check wizard is not rested
+        # create wizard
+        $wizard = new Wizard('Gerald');
+        # casts spell twice
+        $wizard->cast();
+        $wizard->cast();
+        # check if wizard is rested
+        $this->assertTrue($wizard->isRested());
+        # casts spell
+        $wizard->cast();
+        # check wizard is not rested
+        $this->assertFalse($wizard->isRested());
     }
 }
