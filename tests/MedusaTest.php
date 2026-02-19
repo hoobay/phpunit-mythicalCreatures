@@ -46,11 +46,35 @@ class MedusaTest extends TestCase
 
     public function testCanOnlyHaveThreeVictims(): void
     {
-       
+        $medusa = new Medusa('Viola');
+        $victim = new Person('Ulysse');
+        $victim2 = new Person('Thesee');
+        $victim3 = new Person('Hermes');
+        $medusa->stare($victim);
+        $medusa->stare($victim2);
+        $medusa->stare($victim3);    
+
+        $this->assertCount(3, $medusa->getStatues());
     }
 
     public function testIfAFourthVictimIsStonedTheFirstIsUnstoned(): void
     {
-     
+        $medusa = new Medusa('Viola');
+        $victim = new Person('Ulysse');
+        $victim2 = new Person('Thesee');
+        $victim3 = new Person('Hermes');
+        $victim4 = new Person('Romulus');
+
+        $medusa->stare($victim);
+        $medusa->stare($victim2);
+        $medusa->stare($victim3);
+
+        $this->assertTrue($victim->isStoned());
+
+        $medusa->stare($victim4); 
+        
+        $this->assertFalse($victim->isStoned());
+
+        $this->assertCount(3, $medusa->getStatues());
     }
 }
