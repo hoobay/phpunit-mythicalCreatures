@@ -52,13 +52,28 @@ class PirateTest extends TestCase
     public function testHasABooty(): void
     {
     # create a pirate
+    $pirate = new Pirate('John');
     # check that the pirate starts with 0 booty
+    $this->assertEquals(0, $pirate->getBooty());
     }
 
     public function testGets100BootyForRobbingAShip(): void
     {
     # create a pirate
+    $pirate = new Pirate('Carl');
     # rob some ships
+    $pirate->robShip();
+    $this->assertEquals(100, $pirate->getBooty());
+    }
+
     # check that the pirate got 100 booty for each ship it robbed
+    public function testGets100BootyForEachShip(): void
+    {
+        $pirate = new Pirate('Tom');
+        $pirate->robShip();
+        $pirate->robShip();
+        $pirate->robShip();
+        $pirate->robShip();
+        $this->assertEquals(400, $pirate->getBooty());
     }
 }
